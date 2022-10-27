@@ -1,0 +1,23 @@
+<form enctype="multipart/form-data" method="post">
+	{% csrf_token %}
+	{% for add in form %}
+
+	<div class="mb-3">
+		<label for="" class="form-label">{{ add.label }}:</label>
+		
+		<input 
+		type="text"
+		class="form-control" 
+		name="{{ add.name }}" 
+		id="" 
+		aria-describedby="helpId" 
+		placeholder="{{ add.label }}" 
+		value="{{ add.value | default:'' }}"
+		/>
+
+	</div>
+	<div class="col-12 help-text">{{add.errors}}</div>
+	{% endfor %}
+	<input name="" id="" class="btn btn-success" type="submit" value="Enviar Infomación">
+	<a name="" id="" class="btn btn-primary" href="{% url 'data' %}" role="button">Cancel</a>
+</form>

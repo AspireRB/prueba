@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block titulo %} Urls {% endblock %}
+
+{% block content %}
+
+<div class="card">
+	<div class="card-header">
+		<a name="" id="" class="btn btn-primary" href="{% url 'create' %}" role="button">Agregar Nueva Url</a>
+	</div>
+	<div class="card-body">
+		<h4 class="card-title">Urls</h4>
+		<div class="table-responsive">
+			<table class="table table-primary">
+				<thead>
+					<tr>
+						<th>Num</th>
+						<th>Url</th>
+						<th>Acciones</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for info in data %}
+					<tr>
+						<td>{{ info.id }}</td>
+						<td>{{ info.url }}</td>
+						<td>
+							<a name="" id="" class="btn btn-info" href="{% url 'edit' info.id %}" role="button">Editar</a> 
+							|
+							<a name="" id="" class="btn btn-danger" href="{% url 'delete' info.id %}" role="button">Borrar</a>
+						</td>
+					</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+	<div class="card-footer text-muted">
+		
+	</div>
+</div>
+
+{% endblock %}
